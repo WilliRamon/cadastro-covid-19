@@ -7,6 +7,7 @@ struct atendimento
 	char cpf[15];
 	int fone[15];
 	char endereco[100];
+	char cep[10];
 	char nascimento[10];
 	int anoNasc;
 	char email[50];
@@ -17,6 +18,7 @@ struct atendimento
 int main(){
 	setlocale(LC_ALL, "Portuguese");
 	struct atendimento paciente;
+	FILE *arquivo;
 	int idade;
 	
 	char login[10] = "admin", log[10];
@@ -44,6 +46,15 @@ int main(){
 		}
 	}while(sen != senha);
 	
+	arquivo = fopen("dados.txt", "a");
+	if(arquivo == NULL)
+	{
+		printf("O arquivo não foi aberto. Ocorreu um erro!\n");
+	}
+	else
+	{
+	
+	
 	printf("Cadastro Inicial do Paciente\n");
 	
 	printf("\nNome: \n");
@@ -60,6 +71,10 @@ int main(){
 	
 	printf("Endereço: \n");
 	gets(paciente.endereco);
+	fflush(stdin);
+	
+	printf("Informe o CEP: \n");
+	gets(paciente.cep);
 	fflush(stdin);
 	
 	printf("Informe dia e mês de nascimento: \n");
@@ -86,24 +101,17 @@ int main(){
 	idade = 2021 - paciente.anoNasc;
 	
 	if((idade > 65) || strcmp(paciente.comorbidade, " ") == 1){
-		printf("Grupo de risco\n");
+		printf("Paciente em grupo de risco\n");
+		printf("Dados pessoais salvos em dadospaciente");
+		
+		fprintf(arquivo, "\n-------------------------------------------\n");
+		fprintf(arquivo, "Nome: %s\n", paciente.nome);	
+		fprintf(arquivo, "CEP: %s\n", paciente.cep);	
+		fprintf(arquivo, "Comorbidade: %s\n", paciente.comorbidade);
+		fprintf(arquivo, "-------------------------------------------\n");	
 	}else{
 		printf("Fora do grupo de risco\n");
 	}
-	
-
-	
-	printf("Nome: %s\n", paciente.nome);
-	printf("CPF: %s\n", paciente.cpf);
-	printf("Telefone: %d\n", paciente.fone);
-	printf("Endereço: %s\n", paciente.endereco);
-	printf("Data de Nascimento: %s\n", paciente.nascimento);
-	printf("Ano de nascimento: %d\n", paciente.anoNasc);
-	printf("E-mail: %s\n", paciente.email);
-	printf("Dia do Diagnostico: %s\n", paciente.datadiag);
-	printf("Comorbidade: %s\n", paciente.comorbidade);
-
-	
-	
-	return (0);
+}
+	fclose(arquivo);
 }
