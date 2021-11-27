@@ -100,7 +100,7 @@ int main(){
 	
 	idade = 2021 - paciente.anoNasc;
 	
-	if((idade > 65) || strcmp(paciente.comorbidade, " ") == 1){
+	if((idade > 65) || (strcmp(paciente.comorbidade, " ")) == 1){
 		printf("Paciente em grupo de risco\n");
 		printf("Dados pessoais salvos em dadospaciente");
 		
