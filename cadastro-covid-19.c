@@ -96,17 +96,19 @@ int main(){
 	printf("Comorbidade: \n");
 	gets(paciente.comorbidade);
 	fflush(stdin);
+	system("cls");
 	
 	
 	idade = 2021 - paciente.anoNasc;
 	
 	if((idade > 65) || (strcmp(paciente.comorbidade, " ")) == 1){
 		printf("Paciente em grupo de risco\n");
-		printf("Dados pessoais salvos em dadospaciente");
+		printf("Dados pessoais salvos em dados");
 		
 		fprintf(arquivo, "\n-------------------------------------------\n");
-		fprintf(arquivo, "Nome: %s\n", paciente.nome);	
-		fprintf(arquivo, "CEP: %s\n", paciente.cep);	
+		fprintf(arquivo, "Nome: %s\n", paciente.nome);
+		fprintf(arquivo, "Idade: %d\n", idade);		
+		fprintf(arquivo, "CEP: %s\n", paciente.cep);
 		fprintf(arquivo, "Comorbidade: %s\n", paciente.comorbidade);
 		fprintf(arquivo, "-------------------------------------------\n");	
 	}else{
