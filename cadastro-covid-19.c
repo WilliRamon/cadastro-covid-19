@@ -58,11 +58,11 @@ int main(){
 	scanf("%d", &paciente.fone);
 	fflush(stdin);
 	
-	printf("Endereï¿½o: \n");
+	printf("Endereço: \n");
 	gets(paciente.endereco);
 	fflush(stdin);
 	
-	printf("Informe dia e mï¿½s de nascimento: \n");
+	printf("Informe dia e mês de nascimento: \n");
 	gets(paciente.nascimento);
 	fflush(stdin);
 	
@@ -78,6 +78,7 @@ int main(){
 	gets(paciente.datadiag);
 	fflush(stdin);
 	
+	printf("Comorbidade: \n");
 	gets(paciente.comorbidade);
 	fflush(stdin);
 	
@@ -95,7 +96,7 @@ int main(){
 	printf("Nome: %s\n", paciente.nome);
 	printf("CPF: %s\n", paciente.cpf);
 	printf("Telefone: %d\n", paciente.fone);
-	printf("Endereï¿½o: %s\n", paciente.endereco);
+	printf("Endereço: %s\n", paciente.endereco);
 	printf("Data de Nascimento: %s\n", paciente.nascimento);
 	printf("Ano de nascimento: %d\n", paciente.anoNasc);
 	printf("E-mail: %s\n", paciente.email);
