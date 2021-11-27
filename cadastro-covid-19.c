@@ -93,7 +93,7 @@ int main(){
 	gets(paciente.datadiag);
 	fflush(stdin);
 	
-	printf("Comorbidade: \n");
+	printf("Comorbidade:\nCaso paciente não apresente comorbidade, deixar esse campo em branco\n");
 	gets(paciente.comorbidade);
 	fflush(stdin);
 	system("cls");
